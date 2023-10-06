@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header {
+    border-bottom: 2px solid black;
+    background-color: rgb(255, 121, 121);
+    padding: 25px;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+label {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+#notes-new {
+    padding: 15px;
+}
+
+#notes-new textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 150px;
+    text-align: center;
+}
+
+#notes-buttons {
+    padding: 5px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 5px;
+}
+
+#notes-buttons button {
+    width: 100%;
+    padding: 15px;
+}
+
+#stored-notes-title {
+    font-size: 1.75em;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#notes-colour-label {
+    text-decoration: underline;
+    text-align: center;
+    margin: 33%;
+}
+
+#notes-colour-select {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#notes-colour-select option {
+    justify-content: center;
+}

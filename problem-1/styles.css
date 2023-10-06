@@ -12,6 +12,7 @@
     height: 125px;
     background-color: aquamarine;
     text-align: center;
+    border: 2px solid red;
 }
 
 .nested-grid {
