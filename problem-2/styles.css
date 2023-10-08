@@ -24,6 +24,32 @@ label {
 
 }
 
+.note {
+    font-size: 1.2em;
+    min-height: 12px;
+    max-height: auto;
+    max-width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    overflow: auto;
+    border: 2px solid black;
+}
+
+.note:hover {
+    background-color: #b6b6b6;
+}
+
+#notes {
+    padding: 15px;
+}
+
+#stored-notes-title {
+    margin-bottom: 12px;
+}
+
+#notes-stored {
+}
+
 #notes-new {
     padding: 15px;
 }
@@ -33,7 +59,7 @@ label {
     max-width: 100%;
     min-width: 100%;
     min-height: 150px;
-    text-align: center;
+    margin-top: 12px;
 }
 
 #notes-buttons {
@@ -49,6 +75,10 @@ label {
     padding: 15px;
 }
 
+#notes-buttons button:hover {
+    fill-opacity: 50%;
+}
+
 #stored-notes-title {
     font-size: 1.75em;
     text-decoration: underline;
@@ -58,16 +88,12 @@ label {
 #notes-colour-label {
     text-decoration: underline;
     text-align: center;
-    margin: 33%;
+    margin-top: 12px;
 }
 
 #notes-colour-select {
     width: 100%;
     padding: 15px;
     margin-top: 10px;
-    text-align: center;
-}
-
-#notes-colour-select option {
     justify-content: center;
 }

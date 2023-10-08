@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Note Taking App</title>
+    <style>
+        #notes {
+            display: flex;
+            flex-direction: column;
+        }
+        .note {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Note Taking App</h1>
+    <div>
+        <button id="addNoteButton">Add Note</button>
+        <button id="editNoteButton" disabled>Edit Note</button>
+        <button id="deleteNoteButton" disabled>Delete Note</button>
+        <select id="noteColor">
+            <option value="yellow">Yellow</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+        </select>
+    </div>
+    <div>
+        <textarea id="noteText" rows="4" cols="50" placeholder="Enter your note here"></textarea>
+    </div>
+    <div id="notes">
+    </div>
+
+    <script>
+        const addNoteButton = document.getElementById("addNoteButton");
+        const editNoteButton = document.getElementById("editNoteButton");
+        const deleteNoteButton = document.getElementById("deleteNoteButton");
+        const noteColorSelect = document.getElementById("noteColor");
+        const noteText = document.getElementById("noteText");
+        const notesContainer = document.getElementById("notes");
+
+        let selectedNote = null;
+
+        addNoteButton.addEventListener("click", addNote);
+        editNoteButton.addEventListener("click", editNote);
+        deleteNoteButton.addEventListener("click", deleteNote);
+
+        function addNote() {
+            const color = noteColorSelect.value;
+            const text = noteText.value;
+            if (text.trim() !== "") {
+                const note = document.createElement("div");
+                note.className = "note";
+                note.style.backgroundColor = color;
+                note.textContent = text;
+                note.addEventListener("click", () => {
+                    selectedNote = note;
+                    updateButtons();
+                });
+                notesContainer.appendChild(note);
+                noteText.value = "";
+                updateButtons();
+            }
+        }
+
+        function editNote() {
+            if (selectedNote) {
+                const newText = prompt("Edit Note:", selectedNote.textContent);
+                if (newText !== null) {
+                    selectedNote.textContent = newText;
+                }
+            } else {
+                alert("Please select a note to edit.");
+            }
+        }
+
+        function deleteNote() {
+            if (selectedNote) {
+                if (confirm("Are you sure you want to delete this note?")) {
+                    notesContainer.removeChild(selectedNote);
+                    selectedNote = null;
+                    updateButtons();
+                }
+            } else {
+                alert("Please select a note to delete.");
+            }
+        }
+
+        function updateButtons() {
+            if (selectedNote) {
+                editNoteButton.disabled = false;
+                deleteNoteButton.disabled = false;
+            } else {
+                editNoteButton.disabled = true;
+                deleteNoteButton.disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>
